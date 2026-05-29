@@ -1,0 +1,416 @@
+@font-face {
+    font-family: "PokemonSolid";
+    src: url("../font/PokemonSolid.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "PixelGameFont";
+    src: url("../font/PixelGameFont.ttf") format("truetype");
+    font-display: swap;
+}
+
+html {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('../photos/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overscroll-behavior-block: none;
+}
+
+body {
+    font-family: "PixelGameFont", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+body input, body select, body button, body textarea {
+    font-family: "PixelGameFont", sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-family: "PokemonSolid", sans-serif;
+    font-weight: normal;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    color: #ffcb05;
+    -webkit-text-stroke: 2px #2a4a9c;
+    text-shadow: 3px 3px 0 #2a4a9c;
+    margin: 10px 0 20px 0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px 40px;
+}
+
+.treinador-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #ffffffc1;
+    padding: 15px 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #2a4a9c;
+}
+
+.sprite-treinador {
+    width: 96px;
+    height: 96px;
+    image-rendering: pixelated;
+    object-fit: contain;
+}
+
+.treinador-dados h2 {
+    margin: 0 0 6px 0;
+    color: #2a4a9c;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+.idade-treinador {
+    margin: 0;
+    color: #343131;
+    font-size: 0.95rem;
+}
+
+.status-equipe {
+    background-color: #ffcd05;
+    color: #2a4a9c;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 0;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slots-equipe {
+    display: grid;
+    grid-template-columns: repeat(3, 160px);
+    gap: 15px;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.slot-equipe {
+    width: 160px;
+    height: 160px;
+    background-color: #ffffff84;
+    border: 2px dashed #2a4a9c;
+    border-radius: 12px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+    color: #2a4a9c;
+}
+
+@media (max-width: 540px) {
+    .slots-equipe {
+        grid-template-columns: repeat(3, 115px);
+    }
+    .slot-equipe {
+        width: 115px;
+        height: 115px;
+    }
+}
+
+.slot-numero {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.slot-vazio {
+    font-size: 2rem;
+    opacity: 0.4;
+}
+
+.slot-img {
+    width: 72px;
+    height: 72px;
+    image-rendering: pixelated;
+    object-fit: contain;
+}
+
+.slot-equipe.preenchido {
+    border-style: solid;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.slot-equipe.preenchido .slot-numero {
+    color: #fff;
+    opacity: 0.85;
+}
+
+.slot-equipe.preenchido .slot-nome {
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.slot-equipe.preenchido.type-normal   { background-color: #A8A77A; border-color: #A8A77A; }
+.slot-equipe.preenchido.type-fire     { background-color: #EE8130; border-color: #EE8130; }
+.slot-equipe.preenchido.type-water    { background-color: #6390F0; border-color: #6390F0; }
+.slot-equipe.preenchido.type-electric { background-color: #F7D02C; border-color: #F7D02C; color: #343131; }
+.slot-equipe.preenchido.type-electric .slot-nome,
+.slot-equipe.preenchido.type-electric .slot-numero { color: #343131; }
+.slot-equipe.preenchido.type-grass    { background-color: #7AC74C; border-color: #7AC74C; }
+.slot-equipe.preenchido.type-ice      { background-color: #96D9D6; border-color: #96D9D6; color: #343131; }
+.slot-equipe.preenchido.type-ice .slot-nome,
+.slot-equipe.preenchido.type-ice .slot-numero { color: #343131; }
+.slot-equipe.preenchido.type-fighting { background-color: #C22E28; border-color: #C22E28; }
+.slot-equipe.preenchido.type-poison   { background-color: #A33EA1; border-color: #A33EA1; }
+.slot-equipe.preenchido.type-ground   { background-color: #E2BF65; border-color: #E2BF65; color: #343131; }
+.slot-equipe.preenchido.type-ground .slot-nome,
+.slot-equipe.preenchido.type-ground .slot-numero { color: #343131; }
+.slot-equipe.preenchido.type-flying   { background-color: #A98FF3; border-color: #A98FF3; }
+.slot-equipe.preenchido.type-psychic  { background-color: #F95587; border-color: #F95587; }
+.slot-equipe.preenchido.type-bug      { background-color: #A6B91A; border-color: #A6B91A; }
+.slot-equipe.preenchido.type-rock     { background-color: #B6A136; border-color: #B6A136; }
+.slot-equipe.preenchido.type-ghost    { background-color: #735797; border-color: #735797; }
+.slot-equipe.preenchido.type-dragon   { background-color: #6F35FC; border-color: #6F35FC; }
+.slot-equipe.preenchido.type-dark     { background-color: #705746; border-color: #705746; }
+.slot-equipe.preenchido.type-steel    { background-color: #B7B7CE; border-color: #B7B7CE; color: #343131; }
+.slot-equipe.preenchido.type-steel .slot-nome,
+.slot-equipe.preenchido.type-steel .slot-numero { color: #343131; }
+.slot-equipe.preenchido.type-fairy    { background-color: #D685AD; border-color: #D685AD; }
+
+.slot-nome {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.acoes-equipe {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.btn-escolher,
+.btn-confirmar {
+    background-color: #ffffff;
+    color: #2a4a9c;
+    border: 2px solid #2a4a9c;
+    border-radius: 8px;
+    padding: 14px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.2s, transform 0.1s, opacity 0.2s;
+}
+
+.btn-escolher:hover,
+.btn-confirmar:hover {
+    background-color: #ffd83a;
+}
+
+.btn-escolher:active,
+.btn-confirmar:active {
+    transform: scale(0.98);
+}
+
+.btn-escolher:disabled,
+.btn-confirmar:disabled {
+    background-color: #e0e0e0;
+    color: #888;
+    border-color: #aaa;
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+}
+
+.btn-confirmar {
+    background-color: #ffffff;
+    color: #2a4a9c;
+    border-color: #2a4a9c;
+}
+
+.btn-confirmar:hover {
+    background-color: #ffd83a;
+}
+
+.status-barra {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.status-barra .status-equipe {
+    margin: 0;
+}
+
+.btn-resetar {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #ffffff;
+    color: #2a4a9c;
+    border: 2px solid #2a4a9c;
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.1s;
+}
+
+.btn-resetar svg {
+    pointer-events: none;
+}
+
+.btn-resetar:hover {
+    background-color: #c22e28;
+    color: #fff;
+    border-color: #c22e28;
+}
+
+.btn-resetar:active {
+    transform: scale(0.98);
+}
+
+.btn-resetar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #ffffff;
+    color: #2a4a9c;
+    border-color: #2a4a9c;
+    transform: none;
+}
+
+.btn-resetar:disabled:hover {
+    background-color: #ffffff;
+    color: #2a4a9c;
+    border-color: #2a4a9c;
+}
+
+/* Botões dentro de cada slot preenchido */
+.slot-acoes {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    display: flex;
+    gap: 4px;
+}
+
+.slot-equipe {
+    position: relative;
+}
+
+.slot-btn {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.75rem;
+    background-color: #ffffffee;
+    color: #2a4a9c;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.15s, transform 0.1s;
+    padding: 0;
+}
+
+.slot-btn:hover {
+    transform: scale(1.1);
+}
+
+.slot-btn-trocar:hover {
+    background-color: #ffcb05;
+}
+
+.slot-btn-remover:hover {
+    background-color: #c22e28;
+    color: #fff;
+}
+
+/* Botão "+" para preencher slot vazio */
+.slot-btn-add {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px dashed #2a4a9c;
+    background-color: transparent;
+    color: #2a4a9c;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding: 0;
+    transition: background-color 0.2s, transform 0.1s, border-style 0.2s;
+}
+
+.slot-btn-add:hover {
+    background-color: #ffcd05be;
+    border-style: solid;
+    transform: scale(1.05);
+}
+
+.slot-nome-vazio {
+    opacity: 0.6;
+    font-style: italic;
+}
+
+.btn-logout {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #ffffffee;
+    color: #2a4a9c;
+    border: 2px solid #2a4a9c;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, color 0.2s, transform 0.1s;
+    margin-left: 10px;
+}
+
+.btn-logout:hover {
+    background-color: #c22e28;
+    color: #fff;
+    border-color: #c22e28;
+}
+
+.btn-logout:active {
+    transform: scale(0.98);
+}

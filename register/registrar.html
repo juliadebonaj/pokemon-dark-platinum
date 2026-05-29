@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="registrar.css">
+    <link rel="stylesheet" href="../theme/tema.css">
+    <link rel="stylesheet" href="../theme/musica.css">
+    <link rel="stylesheet" href="../theme/overlays.css">
+    <title>Registrar</title>
+    <script src="../theme/tema.js"></script>
+    <script src="../theme/musica.js" defer></script>
+    <script src="../theme/overlays.js"></script>
+
+</head>
+
+<body>
+    <!--Toggle modo escuro ou modo claro-->
+    <label class="toggle-tema-wrapper" for="toggle-tema">
+        <input type="checkbox" id="toggle-tema" class="toggle-tema-input">
+        <span class="toggle-tema-label">
+            <span class="toggle-tema-thumb"></span>
+        </span>
+    </label>
+
+    <!--Título visível-->
+    <header>
+        <h1>Pokemon Dark Platinum</h1>
+    </header>
+
+    <main>
+    <!--Início do formulário-->
+        <form id="form-registro" class="form-registro">
+            <h2>Registro de Treinador</h2>
+
+            <div class="campo">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required placeholder="Ex: Red">
+            </div>
+
+            <div class="campo">
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" required placeholder="Ex: 10">
+            </div>
+
+            <!--Seletor de sprite-->
+            <div class="seletor-avatar">
+                <p>Escolha seu Sprite:</p>
+
+                <div class="opcoes-avatar">
+                    <label class="card-avatar">
+                        <input type="radio" name="sprite" value="menino" checked>
+                        <img src="../photos/boy.png" alt="Treinador Menino">
+                    </label>
+
+                    <label class="card-avatar">
+                        <input type="radio" name="sprite" value="menina">
+                        <img src="../photos/girl.png" alt="Treinadora Menina">
+                    </label>
+                </div>
+            </div>
+
+            <!--Botão de envio de formulário, fim do formulário-->
+            <button type="submit" class="btn-enviar" id="btn-enviar" disabled>Começar Jornada</button>
+        </form>
+
+        <!--Puxando a lógica de script.js-->
+        <script src="registrar.js"></script>
+    </main>
+</body>
+
+</html>

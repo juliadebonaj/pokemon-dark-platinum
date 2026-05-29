@@ -1,0 +1,526 @@
+/* Toggle de tema estilo iOS */
+.toggle-tema-wrapper {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+    display: inline-flex;
+    align-items: center;
+}
+
+.toggle-tema-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.toggle-tema-label {
+    display: inline-flex;
+    align-items: center;
+    width: 60px;
+    height: 32px;
+    background-color: #ffd83a;
+    border: 2px solid #2a4a9c;
+    border-radius: 32px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    padding: 0 4px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+/* Ícones sol/lua nos cantos do track */
+.toggle-tema-label::before {
+    content: "☀";
+    font-size: 14px;
+    color: #2a4a9c;
+    z-index: 1;
+}
+
+.toggle-tema-label::after {
+    content: "🌙";
+    font-size: 12px;
+    z-index: 1;
+}
+
+/* Bolinha (thumb) deslizante */
+.toggle-tema-thumb {
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    transition: left 0.3s, background-color 0.3s;
+}
+
+/* Quando o checkbox está marcado (tema escuro) */
+.toggle-tema-input:checked ~ .toggle-tema-label {
+    background-color: #2a4a9c;
+    border-color: #ffcb05;
+}
+
+.toggle-tema-input:checked ~ .toggle-tema-label .toggle-tema-thumb {
+    left: 32px;
+    background-color: #1a2a5c;
+}
+
+.toggle-tema-input:focus-visible ~ .toggle-tema-label {
+    outline: 2px solid #ffcb05;
+    outline-offset: 2px;
+}
+
+/* ============================== */
+/* TEMA ESCURO - overrides globais */
+/* ============================== */
+
+html.tema-escuro {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../photos/bg.jpg');
+}
+
+/* Cards Pokémon: translucido como no claro (#ffffff84 -> #00000084) */
+.tema-escuro .pokemon-card {
+    background-color: #00000084;
+    color: #f0f0f0;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Form de registro: translucido (#ffffff84 -> #00000084) */
+.tema-escuro .form-registro {
+    background-color: #00000084;
+    color: #f0f0f0;
+    border-color: #2a4a9c;
+}
+
+/* Cards do treinador: translucido (#ffffffc1 -> #000000c1) */
+.tema-escuro .treinador-info,
+.tema-escuro .treinador-info-mini {
+    background-color: #000000c1;
+    color: #f0f0f0;
+    border-color: #2a4a9c;
+}
+
+/* Slots vazios: translucido como no claro (#ffffff84 -> #00000084) */
+.tema-escuro .slot-equipe {
+    background-color: #00000084;
+    color: #f0f0f0;
+    border-color: #2a4a9c;
+}
+
+/* Barra de filtro: translucido (#ffffffee -> #000000ee) */
+.tema-escuro .filtro-barra {
+    background-color: #000000cc;
+    color: #f0f0f0;
+}
+
+/* Overlay conteúdo (modal "Equipe Completa"): translucido (#ffffffee -> #000000ee) */
+.tema-escuro .overlay-conteudo {
+    background-color: #000000ee;
+    color: #f0f0f0;
+    border-color: #2a4a9c;
+}
+
+.tema-escuro .overlay-conteudo p {
+    color: #ffcb05;
+}
+
+/* Botões com fundo branco-translucido (#ffffffee/#ffffff -> #000000ee) */
+.tema-escuro .btn-logout,
+.tema-escuro .btn-resetar,
+.tema-escuro .btn-ver-equipe,
+.tema-escuro .btn-escolher,
+.tema-escuro .btn-confirmar,
+.tema-escuro .btn-comecar-aventura,
+.tema-escuro .btn-enviar,
+.tema-escuro .btn-musica,
+.tema-escuro .btn-voltar {
+    background-color: #000000cc;
+    color: #f0f0f0;
+    border-color: #2a4a9c;
+}
+
+/* Cards de modos da Aventura - fundo translucido escuro */
+.tema-escuro .card-modo {
+    background-color: #00000084;
+    color: #f0f0f0;
+    border-color: #2a4a9c;
+}
+
+.tema-escuro .card-modo-desc {
+    color: #f0f0f0;
+}
+
+/* Hover dos cards de modo no tema escuro - mantém a cor temática mas com versão escura */
+.tema-escuro .card-modo-memoria:hover {
+    background-color: #1a3a5c;
+}
+
+.tema-escuro .card-modo-batalha:hover {
+    background-color: #5c1a1a;
+}
+
+.tema-escuro .card-modo-extra:hover {
+    background-color: #5c4a1a;
+}
+
+/* Overlay de selecao de modo da Memoria - card central */
+.tema-escuro .overlay-memoria .overlay-conteudo {
+    background-color: #000000ee;
+    border-color: #2a4a9c;
+    color: #f0f0f0;
+}
+
+.tema-escuro .overlay-memoria > .overlay-conteudo > p {
+    color: #ffcb05;
+}
+
+/* Mini cards dentro do overlay - mesma logica dos card-modo */
+.tema-escuro .card-modo-mini {
+    background-color: #00000084;
+    color: #f0f0f0;
+    border-color: #2a4a9c;
+}
+
+.tema-escuro .card-modo-mini .card-modo-desc {
+    color: #f0f0f0;
+}
+
+.tema-escuro .card-modo-mini.card-modo-memoria:hover:not(:disabled) {
+    background-color: #1a3a5c;
+}
+
+.tema-escuro .card-modo-mini.card-modo-batalha:hover:not(:disabled) {
+    background-color: #5c1a1a;
+}
+
+.tema-escuro .card-modo-mini.card-modo-extra:hover:not(:disabled) {
+    background-color: #5c4a1a;
+}
+
+/* Botao fechar overlay no tema escuro */
+.tema-escuro .btn-fechar-overlay {
+    background-color: #000000cc;
+    color: #f0f0f0;
+    border-color: #2a4a9c;
+}
+
+.tema-escuro .btn-fechar-overlay:hover {
+    background-color: #c22e28;
+    color: #fff;
+    border-color: #c22e28;
+}
+
+/* Cartas do jogo da memoria - mesmo estilo dos cards de pokemon */
+.tema-escuro .carta-verso,
+.tema-escuro .carta-frente {
+    background-color: #00000084;
+    border-color: #2a4a9c;
+}
+
+.tema-escuro .carta.combinada .carta-frente {
+    background-color: #4caf50;
+    border-color: #4caf50;
+}
+
+/* Painel de info do jogo da memoria */
+.tema-escuro .painel-jogo {
+    background-color: #000000c1;
+    border-color: #2a4a9c;
+    color: #f0f0f0;
+}
+
+.tema-escuro .painel-info {
+    color: #f0f0f0;
+    border-right-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Subtitulo do modo */
+.tema-escuro .subtitulo {
+    color: #ffcb05;
+}
+
+/* Botoes da memoria iniciante */
+.tema-escuro .btn-reiniciar,
+.tema-escuro .btn-jogar-novamente,
+.tema-escuro .btn-voltar-aventura {
+    background-color: #000000cc;
+    color: #f0f0f0;
+    border-color: #2a4a9c;
+}
+
+.tema-escuro .btn-reiniciar:hover,
+.tema-escuro .btn-jogar-novamente:hover,
+.tema-escuro .btn-voltar-aventura:hover {
+    background-color: #ffcb05;
+    color: #1a1a1f;
+}
+
+/* Inputs/selects */
+.tema-escuro .busca-input,
+.tema-escuro .filtro-select,
+.tema-escuro .campo input {
+    color: #f0f0f0;
+    background-color: transparent;
+}
+
+.tema-escuro .busca-input::placeholder {
+    color: #aaa;
+}
+
+.tema-escuro .pokemon-name,
+.tema-escuro .nome-treinador-mini,
+.tema-escuro .treinador-dados h2,
+.tema-escuro .idade-treinador,
+.tema-escuro .slot-numero,
+.tema-escuro .slot-nome,
+.tema-escuro .filtro-icone,
+.tema-escuro .filtro-icone-busca {
+    color: #f0f0f0;
+}
+
+/* Status/contador continua amarelo - mantém destaque */
+.tema-escuro .contador-selecao,
+.tema-escuro .status-equipe {
+    background-color: #ffcb05;
+    color: #1a1a1f;
+}
+
+/* Hover dos botões em tema escuro - inverte para amarelo */
+.tema-escuro .btn-escolher:hover,
+.tema-escuro .btn-confirmar:hover,
+.tema-escuro .btn-ver-equipe:hover,
+.tema-escuro .btn-comecar-aventura:hover,
+.tema-escuro .btn-enviar:hover,
+.tema-escuro .btn-musica:hover,
+.tema-escuro .btn-voltar:hover {
+    background-color: #ffcb05;
+    color: #1a1a1f;
+}
+
+/* Hover destrutivo (sair / resetar) em tema escuro - vermelho */
+.tema-escuro .btn-logout:hover,
+.tema-escuro .btn-resetar:hover {
+    background-color: #c22e28;
+    color: #fff;
+    border-color: #c22e28;
+}
+
+/* Botões desabilitados em tema escuro - mantêm visual esmaecido */
+.tema-escuro .btn-enviar:disabled,
+.tema-escuro .btn-escolher:disabled,
+.tema-escuro .btn-confirmar:disabled,
+.tema-escuro .btn-resetar:disabled,
+.tema-escuro .btn-ver-equipe:disabled {
+    background-color: #2a2a2a;
+    color: #777;
+    border-color: #555;
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+}
+
+.tema-escuro .btn-enviar:disabled:hover,
+.tema-escuro .btn-escolher:disabled:hover,
+.tema-escuro .btn-confirmar:disabled:hover,
+.tema-escuro .btn-resetar:disabled:hover,
+.tema-escuro .btn-ver-equipe:disabled:hover {
+    background-color: #2a2a2a;
+    color: #777;
+    border-color: #555;
+}
+
+/* Cards selecionados mantêm cor de tipo - apenas reduz opacidade dos não selecionados ainda mais */
+.tema-escuro .pokedex-container.equipe-completa .pokemon-card:not(.selected) {
+    opacity: 0.25;
+}
+
+/* ============================== */
+/* BATALHA - tema escuro          */
+/* ============================== */
+
+/* Cards de selecao do pokemon ativo */
+.tema-escuro .selecao-card {
+    background-color: #00000084;
+    color: #f0f0f0;
+    border-color: #2a4a9c;
+}
+
+.tema-escuro .selecao-card:hover {
+    background-color: #ffcb05;
+    color: #1a1a1f;
+}
+
+.tema-escuro .selecao-card:hover .selecao-tipo {
+    background-color: #1a1a1f;
+    color: #ffcb05;
+}
+
+.tema-escuro .selecao-card.escolhido {
+    background-color: #ffcb05;
+    color: #1a1a1f;
+    border-color: #ffcb05;
+}
+
+.tema-escuro .selecao-card.escolhido .selecao-tipo {
+    background-color: #1a1a1f;
+    color: #ffcb05;
+}
+
+.tema-escuro .btn-iniciar-batalha,
+.tema-escuro .btn-cancelar {
+    background-color: #000000cc;
+    color: #f0f0f0;
+    border-color: #2a4a9c;
+}
+
+.tema-escuro .btn-iniciar-batalha:hover:not(:disabled),
+.tema-escuro .btn-cancelar:hover {
+    background-color: #ffcb05;
+    color: #1a1a1f;
+}
+
+.tema-escuro .btn-iniciar-batalha:disabled {
+    background-color: #2a2a2a;
+    color: #777;
+    border-color: #555;
+}
+
+/* Paineis de pokemon na arena */
+.tema-escuro .painel-pokemon {
+    background-color: #000000c1;
+    color: #f0f0f0;
+    border-color: #2a4a9c;
+}
+
+.tema-escuro .painel-info-batalha {
+    color: #f0f0f0;
+}
+
+.tema-escuro .selecao-tipo {
+    background-color: #ffcb05;
+    color: #1a1a1f;
+}
+
+/* Caixa de mensagem */
+.tema-escuro .caixa-mensagem {
+    background-color: #000000ee;
+    color: #ffcb05;
+    border-color: #2a4a9c;
+}
+
+/* Barra de HP - track mais escuro pra contraste */
+.tema-escuro .barra-hp-wrap {
+    background-color: #1a1a1f;
+    border-color: #2a4a9c;
+}
+
+/* Botoes de movimento */
+.tema-escuro .btn-movimento {
+    background-color: #000000cc;
+    color: #f0f0f0;
+    border-color: #2a4a9c;
+}
+
+.tema-escuro .btn-movimento:hover:not(:disabled) {
+    background-color: #ffcb05;
+    color: #1a1a1f;
+}
+
+.tema-escuro .btn-movimento:hover:not(:disabled) .mov-tipo {
+    background-color: #1a1a1f;
+    color: #ffcb05;
+}
+
+.tema-escuro .btn-movimento .mov-tipo {
+    background-color: #ffcb05;
+    color: #1a1a1f;
+}
+
+.tema-escuro .btn-movimento:disabled {
+    background-color: #2a2a2a;
+    color: #777;
+    border-color: #555;
+}
+
+/* Botoes Trocar / Fugir */
+.tema-escuro .btn-trocar,
+.tema-escuro .btn-fugir {
+    background-color: #000000cc;
+    color: #f0f0f0;
+    border-color: #2a4a9c;
+}
+
+.tema-escuro .btn-trocar:hover:not(:disabled),
+.tema-escuro .btn-fugir:hover:not(:disabled) {
+    background-color: #ffcb05;
+    color: #1a1a1f;
+}
+
+.tema-escuro .btn-trocar:disabled,
+.tema-escuro .btn-fugir:disabled {
+    background-color: #2a2a2a;
+    color: #777;
+    border-color: #555;
+}
+
+/* Overlays de batalha (vitoria/derrota/troca) */
+.tema-escuro .overlay-conteudo-batalha {
+    background-color: #000000ee;
+    color: #f0f0f0;
+    border-color: #2a4a9c;
+}
+
+.tema-escuro .overlay-conteudo-batalha p {
+    color: #ffcb05;
+}
+
+.tema-escuro .btn-overlay {
+    background-color: #000000cc;
+    color: #f0f0f0;
+    border-color: #2a4a9c;
+}
+
+.tema-escuro .btn-overlay:hover {
+    background-color: #ffcb05;
+    color: #1a1a1f;
+}
+
+/* Cards de troca de pokemon */
+.tema-escuro .troca-card {
+    background-color: #00000084;
+    color: #f0f0f0;
+    border-color: #2a4a9c;
+}
+
+.tema-escuro .troca-card:hover:not(.desmaiado):not(.ativo) {
+    background-color: #ffcb05;
+    color: #1a1a1f;
+}
+
+.tema-escuro .troca-card.ativo {
+    background-color: #ffcb05;
+    color: #1a1a1f;
+    border-color: #ffcb05;
+}
+
+/* Loading e nomes */
+.tema-escuro .loading-arena,
+.tema-escuro .nome-batalha,
+.tema-escuro .selecao-nome,
+.tema-escuro .troca-nome,
+.tema-escuro .troca-hp,
+.tema-escuro .selecao-stats,
+.tema-escuro .hp-texto {
+    color: #f0f0f0;
+}
+
+.tema-escuro .modificadores {
+    color: #ffcb05;
+}

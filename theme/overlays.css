@@ -1,0 +1,121 @@
+/* Overlays customizados para substituir alert() e confirm() */
+
+.overlay-dialog {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5000;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-out;
+}
+
+.overlay-dialog.ativo {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.overlay-dialog-conteudo {
+    background-color: #ffffffee;
+    border: 3px solid #2a4a9c;
+    border-radius: 15px;
+    padding: 30px 35px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    max-width: 90vw;
+    min-width: 280px;
+    transform: scale(0.9);
+    transition: transform 0.3s ease-out;
+    font-family: "PixelGameFont", sans-serif;
+}
+
+.overlay-dialog.ativo .overlay-dialog-conteudo {
+    transform: scale(1);
+}
+
+.overlay-dialog-conteudo h2 {
+    font-family: "PokemonSolid", sans-serif;
+    font-weight: normal;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    color: #ffcb05;
+    -webkit-text-stroke: 2px #2a4a9c;
+    text-shadow: 3px 3px 0 #2a4a9c;
+    margin: 0 0 15px 0;
+}
+
+.overlay-dialog-conteudo p {
+    color: #2a4a9c;
+    font-size: 1rem;
+    margin: 5px 0 18px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+}
+
+.overlay-dialog-botoes {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.overlay-dialog-btn {
+    background-color: #ffffffee;
+    color: #2a4a9c;
+    border: 2px solid #2a4a9c;
+    border-radius: 8px;
+    padding: 10px 22px;
+    font-family: "PixelGameFont", sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.2s, transform 0.1s, color 0.2s, border-color 0.2s;
+}
+
+.overlay-dialog-btn:hover {
+    background-color: #ffd83a;
+}
+
+.overlay-dialog-btn-cancelar:hover {
+    background-color: #c22e28;
+    color: #fff;
+    border-color: #c22e28;
+}
+
+.overlay-dialog-btn:active {
+    transform: scale(0.97);
+}
+
+/* Tema escuro */
+.tema-escuro .overlay-dialog-conteudo {
+    background-color: #000000ee;
+    border-color: #2a4a9c;
+}
+
+.tema-escuro .overlay-dialog-conteudo p {
+    color: #ffcb05;
+}
+
+.tema-escuro .overlay-dialog-btn {
+    background-color: #000000cc;
+    color: #f0f0f0;
+    border-color: #2a4a9c;
+}
+
+.tema-escuro .overlay-dialog-btn:hover {
+    background-color: #ffcb05;
+    color: #1a1a1f;
+}
+
+.tema-escuro .overlay-dialog-btn-cancelar:hover {
+    background-color: #c22e28;
+    color: #fff;
+    border-color: #c22e28;
+}

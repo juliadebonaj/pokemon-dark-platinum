@@ -1,0 +1,190 @@
+@font-face {
+    font-family: "PokemonSolid";
+    src: url("../font/PokemonSolid.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "PokemonHollow";
+    src: url("../font/PokemonHollow.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "PixelGameFont";
+    src: url("../font/PixelGameFont.ttf") format("truetype");
+    font-display: swap;
+}
+
+html {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('../photos/bg.jpg');                                                         
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overscroll-behavior-block:none;
+}
+
+body {
+    font-family: "PixelGameFont", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body input, body select, body button, body textarea {
+    font-family: "PixelGameFont", sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-family: "PokemonSolid", sans-serif;
+    font-weight: normal;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    color: #ffcb05;
+    -webkit-text-stroke: 2px #2a4a9c;
+    text-shadow: 3px 3px 0 #2a4a9c;
+    margin: 10px 0 20px 0;
+}
+
+main {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body img {
+    zoom: 150%;
+}
+
+.form-registro {
+    width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff84;
+    border: 2px solid #2a4a9c;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #343131;
+}
+
+.form-registro h2 {
+    font-size: 1.3rem;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.campo input {
+    width: 55%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #ffffffc1;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    color: #343131;
+    font-weight: 600;
+    outline: none;
+    transition: 0.3s;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 2px;
+}
+
+.seletor-avatar {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.seletor-avatar p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.opcoes-avatar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.card-avatar input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.card-avatar img {
+    zoom: 0%;
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    cursor: pointer;
+    border: 3px solid transparent;
+    padding: 5px;
+    transition: all 0.2s;
+    image-rendering: pixelated;
+}
+
+.card-avatar input[type="radio"]:checked+img {
+    border-color: #c70c0c;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+}
+
+.btn-enviar {
+    background-color: #ffffffee;
+    color: #2a4a9c;
+    border: 2px solid #2a4a9c;
+    border-radius: 5px;
+    padding: 15px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    width: auto;
+    display: inline-block;
+    transition: background-color 0.2s, transform 0.1s;
+    margin-top: 0;
+}
+
+.btn-enviar:hover {
+    background-color: #ffd83a;
+}
+
+.btn-enviar:disabled {
+    background-color: #e0e0e0;
+    color: #888;
+    border-color: #aaa;
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+}
+
+.btn-enviar:disabled:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-enviar:active {
+    transform: scale(0.98);
+}

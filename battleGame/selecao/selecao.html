@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batalha — Selecao</title>
+    <link rel="stylesheet" href="../battle.css">
+    <link rel="stylesheet" href="../../theme/tema.css">
+    <link rel="stylesheet" href="../../theme/musica.css">
+    <link rel="stylesheet" href="../../theme/overlays.css">
+    <script src="../../theme/tema.js"></script>
+    <script src="../../theme/musica.js" defer></script>
+    <script src="../../theme/overlays.js"></script>
+    <script src="../../theme/guard.js"></script>
+</head>
+<body>
+    <label class="toggle-tema-wrapper" for="toggle-tema">
+        <input type="checkbox" id="toggle-tema" class="toggle-tema-input">
+        <span class="toggle-tema-label">
+            <span class="toggle-tema-thumb"></span>
+        </span>
+    </label>
+
+    <header>
+        <h1>Batalha</h1>
+        <p class="subtitulo" id="subtitulo-dificuldade">Escolha seu Pokemon</p>
+    </header>
+
+    <main>
+        <section class="selecao-container">
+            <section id="grid-equipe" class="selecao-grid"></section>
+
+            <section class="botoes-selecao">
+                <button id="btn-cancelar" class="btn-cancelar" type="button">Cancelar</button>
+                <button id="btn-iniciar" class="btn-iniciar-batalha" type="button" disabled>Iniciar Batalha</button>
+            </section>
+        </section>
+    </main>
+
+    <script src="selecao.js"></script>
+</body>
+</html>

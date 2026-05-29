@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modo Extra — Iniciante</title>
+    <link rel="stylesheet" href="../../memoryGame/memoria.css">
+    <link rel="stylesheet" href="../extra.css">
+    <link rel="stylesheet" href="../../theme/tema.css">
+    <link rel="stylesheet" href="../../theme/musica.css">
+    <link rel="stylesheet" href="../../theme/overlays.css">
+    <script src="../../theme/tema.js"></script>
+    <script src="../../theme/musica.js" defer></script>
+    <script src="../../theme/overlays.js"></script>
+    <script src="../../theme/guard.js"></script>
+</head>
+<body>
+    <label class="toggle-tema-wrapper" for="toggle-tema">
+        <input type="checkbox" id="toggle-tema" class="toggle-tema-input">
+        <span class="toggle-tema-label">
+            <span class="toggle-tema-thumb"></span>
+        </span>
+    </label>
+
+    <header>
+        <h1>Modo Extra</h1>
+        <p class="subtitulo">Iniciante</p>
+    </header>
+
+    <main>
+        <section class="painel-jogo">
+            <div class="painel-info">
+                <span class="painel-label">Jogadas</span>
+                <span id="contador-jogadas" class="painel-valor">0</span>
+            </div>
+            <div class="painel-info">
+                <span class="painel-label">Pares</span>
+                <span id="contador-pares" class="painel-valor">0 / 0</span>
+            </div>
+            <button id="btn-reiniciar" class="btn-reiniciar" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="1 4 1 10 7 10"></polyline>
+                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                </svg>
+                Reiniciar
+            </button>
+            <button id="btn-voltar" class="btn-voltar" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Voltar
+            </button>
+        </section>
+
+        <section id="tabuleiro" class="tabuleiro"></section>
+    </main>
+
+    <div id="overlay-vitoria" class="overlay-vitoria">
+        <div class="overlay-conteudo">
+            <h2>Parabéns!</h2>
+            <p>Você encontrou todos os pares!</p>
+            <p class="estatisticas">Total de jogadas: <span id="estatistica-jogadas">0</span></p>
+            <div class="overlay-botoes">
+                <button id="btn-jogar-novamente" class="btn-jogar-novamente" type="button">Jogar Novamente</button>
+                <button id="btn-voltar-aventura" class="btn-voltar-aventura" type="button">Voltar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../colegas.js"></script>
+    <script src="extraIniciante.js"></script>
+</body>
+</html>

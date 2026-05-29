@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura</title>
+    <link rel="stylesheet" href="aventura.css">
+    <link rel="stylesheet" href="../theme/tema.css">
+    <link rel="stylesheet" href="../theme/musica.css">
+    <link rel="stylesheet" href="../theme/overlays.css">
+    <script src="../theme/tema.js"></script>
+    <script src="../theme/musica.js" defer></script>
+    <script src="../theme/overlays.js"></script>
+    <script src="../theme/guard.js"></script>
+</head>
+
+<body>
+    <!--Toggle modo escuro ou modo claro-->
+    <label class="toggle-tema-wrapper" for="toggle-tema">
+        <input type="checkbox" id="toggle-tema" class="toggle-tema-input">
+        <span class="toggle-tema-label">
+            <span class="toggle-tema-thumb"></span>
+        </span>
+    </label>
+
+    <!--Título visível-->
+    <header>
+        <h1>Escolha sua Aventura</h1>
+    </header>
+
+    <main>
+        <!--Info do nosso treinador (Valdo)-->
+        <section class="treinador-info-mini">
+            <img id="sprite-treinador" class="sprite-treinador-mini" src="" alt="Sprite do Treinador">
+            <h2 id="nome-treinador" class="nome-treinador-mini">Treinador</h2>
+            <!--Botão de retornar para a tela de equipe-->
+            <button id="btn-voltar-equipe" class="btn-voltar" type="button" title="Voltar para equipe">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Equipe
+            </button>
+
+            <!--Botão de logout-->
+            <button id="btn-logout" class="btn-logout" type="button" title="Sair / Resetar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                Sair
+            </button>
+        </section>
+
+        <!--Cards do diferentes games-->
+        <section class="cards-modos">
+            <button id="btn-memoria" class="card-modo card-modo-memoria" type="button">
+                <img class="card-modo-sprite" id="sprite-memoria" alt="" src="">
+                <span class="card-modo-titulo">Jogo da Memória</span>
+                <span class="card-modo-desc">Ache os pares dos seus Pokemons</span>
+            </button>
+
+            <button id="btn-batalha" class="card-modo card-modo-batalha" type="button">
+                <img class="card-modo-sprite" id="sprite-batalha" alt="" src="">
+                <span class="card-modo-titulo">Batalha</span>
+                <span class="card-modo-desc">Enfrente computadores</span>
+            </button>
+
+            <button id="btn-extra" class="card-modo card-modo-extra" type="button">
+                <img class="card-modo-sprite" id="sprite-extra" alt="" src="">
+                <span class="card-modo-titulo">Modo Extra</span>
+                <span class="card-modo-desc">Mistério...</span>
+            </button>
+        </section>
+    </main>
+
+    <!-- Overlay de selecao de modo do Jogo da Memoria -->
+    <div id="overlay-memoria" class="overlay-memoria">
+        <div class="overlay-conteudo">
+            <button id="btn-fechar-overlay" class="btn-fechar-overlay" type="button" title="Fechar">✕</button>
+            <h2>Jogo da Memória</h2>
+            <p>Escolha o nível de dificuldade</p>
+            <div class="overlay-modos">
+                <button id="btn-iniciante" class="card-modo-mini card-modo-memoria" type="button">
+                    <span class="card-modo-titulo">Iniciante</span>
+                    <span class="card-modo-desc">Pares com sua equipe + sprite</span>
+                </button>
+                <button id="btn-dificil" class="card-modo-mini card-modo-batalha" type="button">
+                    <span class="card-modo-titulo">Difícil</span>
+                    <span class="card-modo-desc">Encontre as trincas</span>
+                </button>
+                <button id="btn-maluco" class="card-modo-mini card-modo-extra" type="button">
+                    <span class="card-modo-titulo">Maluco</span>
+                    <span class="card-modo-desc">Encontre o intruso!</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay de selecao de modo do Modo Extra -->
+    <div id="overlay-extra" class="overlay-memoria">
+        <div class="overlay-conteudo">
+            <button id="btn-fechar-overlay-extra" class="btn-fechar-overlay" type="button" title="Fechar">✕</button>
+            <h2>Modo Extra</h2>
+            <p>Desvende o mistério!</p>
+            <div class="overlay-modos">
+                <button id="btn-extra-iniciante" class="card-modo-mini card-modo-memoria" type="button">
+                    <span class="card-modo-titulo">Iniciante</span>
+                    <span class="card-modo-desc">Pares misteriosos</span>
+                </button>
+                <button id="btn-extra-dificil" class="card-modo-mini card-modo-batalha" type="button">
+                    <span class="card-modo-titulo">Difícil</span>
+                    <span class="card-modo-desc">Trincas misteriosas</span>
+                </button>
+                <button id="btn-extra-maluco" class="card-modo-mini card-modo-extra" type="button">
+                    <span class="card-modo-titulo">Maluco</span>
+                    <span class="card-modo-desc">Quem é o intruso?</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay de selecao de dificuldade da Batalha -->
+    <div id="overlay-batalha" class="overlay-memoria">
+        <div class="overlay-conteudo">
+            <button id="btn-fechar-overlay-batalha" class="btn-fechar-overlay" type="button" title="Fechar">✕</button>
+            <h2>Batalha</h2>
+            <p>Escolha o nível de dificuldade</p>
+            <div class="overlay-modos">
+                <button id="btn-bat-iniciante" class="card-modo-mini card-modo-memoria" type="button">
+                    <span class="card-modo-titulo">Iniciante</span>
+                    <span class="card-modo-desc">Inimigo enfraquecido</span>
+                </button>
+                <button id="btn-bat-dificil" class="card-modo-mini card-modo-batalha" type="button">
+                    <span class="card-modo-titulo">Difícil</span>
+                    <span class="card-modo-desc">Inimigo padrão</span>
+                </button>
+                <button id="btn-bat-maluco" class="card-modo-mini card-modo-extra" type="button">
+                    <span class="card-modo-titulo">Maluco</span>
+                    <span class="card-modo-desc">Inimigo turbinado</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Puxando a lógica de script.js-->
+    <script src="aventura.js"></script>
+</body>
+
+</html>

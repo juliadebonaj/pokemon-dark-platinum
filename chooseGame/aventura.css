@@ -1,0 +1,334 @@
+@font-face {
+    font-family: "PokemonSolid";
+    src: url("../font/PokemonSolid.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "PixelGameFont";
+    src: url("../font/PixelGameFont.ttf") format("truetype");
+    font-display: swap;
+}
+
+html {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('../photos/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overscroll-behavior-block: none;
+}
+
+body {
+    font-family: "PixelGameFont", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+body input, body select, body button, body textarea {
+    font-family: "PixelGameFont", sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-family: "PokemonSolid", sans-serif;
+    font-weight: normal;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    color: #ffcb05;
+    -webkit-text-stroke: 2px #2a4a9c;
+    text-shadow: 3px 3px 0 #2a4a9c;
+    margin: 10px 0 20px 0;
+    text-align: center;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 0 20px 40px;
+}
+
+/* Card mini do treinador (mesma estética da main/equipe) */
+.treinador-info-mini {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #ffffffc1;
+    padding: 8px 18px;
+    border-radius: 12px;
+    border: 2px solid #2a4a9c;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sprite-treinador-mini {
+    width: 48px;
+    height: 48px;
+    image-rendering: pixelated;
+    object-fit: contain;
+}
+
+.nome-treinador-mini {
+    margin: 0;
+    color: #2a4a9c;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.btn-voltar,
+.btn-logout {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #ffffffee;
+    color: #2a4a9c;
+    border: 2px solid #2a4a9c;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.1s;
+}
+
+.btn-voltar:hover {
+    background-color: #ffd83a;
+    transform: translateY(-2px);
+}
+
+.btn-logout:hover {
+    background-color: #c22e28;
+    color: #fff;
+    border-color: #c22e28;
+}
+
+/* Container dos 3 cards */
+.cards-modos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    width: min(900px, 95vw);
+}
+
+@media (max-width: 720px) {
+    .cards-modos {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Cada card de modo - botão grande */
+.card-modo {
+    background-color: #ffffff84;
+    border: 3px solid #2a4a9c;
+    border-radius: 18px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    color: #2a4a9c;
+    text-align: center;
+}
+
+.card-modo:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.card-modo:active {
+    transform: translateY(-2px);
+}
+
+.card-modo-sprite {
+    width: 96px;
+    height: 96px;
+    image-rendering: pixelated;
+    object-fit: contain;
+}
+
+.card-modo-icone-grande {
+    font-size: 4rem;
+    line-height: 1;
+}
+
+.card-modo:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.card-modo:disabled:hover {
+    transform: none;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    background-color: #ffffff84;
+}
+
+.card-modo-titulo {
+    font-family: "PokemonSolid", sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    color: #ffcb05;
+    -webkit-text-stroke: 1.5px #2a4a9c;
+    text-shadow: 2px 2px 0 #2a4a9c;
+}
+
+.card-modo-desc {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: #2a4a9c;
+    opacity: 0.85;
+}
+
+/* Hover específico por card - cor de fundo correspondente */
+.card-modo-memoria:hover {
+    background-color: #c8e6ff;
+}
+
+.card-modo-batalha:hover {
+    background-color: #ffe0e0;
+}
+
+.card-modo-extra:hover {
+    background-color: #fff4b8;
+}
+
+/* ========== Overlay de selecao de modo ========== */
+.overlay-memoria {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+.overlay-memoria.ativo {
+    display: flex;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.overlay-memoria .overlay-conteudo {
+    position: relative;
+    background-color: #ffffffee;
+    border: 3px solid #2a4a9c;
+    border-radius: 18px;
+    padding: 40px 50px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    max-width: 90vw;
+}
+
+.overlay-memoria h2 {
+    font-family: "PokemonSolid", sans-serif;
+    font-weight: normal;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    color: #ffcb05;
+    -webkit-text-stroke: 2px #2a4a9c;
+    text-shadow: 3px 3px 0 #2a4a9c;
+    margin: 0 0 8px 0;
+}
+
+.overlay-memoria > .overlay-conteudo > p {
+    color: #2a4a9c;
+    font-size: 1rem;
+    margin: 0 0 25px 0;
+    letter-spacing: 1px;
+}
+
+.btn-fechar-overlay {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #2a4a9c;
+    background-color: #ffffff;
+    color: #2a4a9c;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding: 0;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-fechar-overlay:hover {
+    background-color: #c22e28;
+    color: #fff;
+    border-color: #c22e28;
+}
+
+.overlay-modos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: center;
+}
+
+.card-modo-mini {
+    background-color: #ffffff84;
+    border: 3px solid #2a4a9c;
+    border-radius: 14px;
+    padding: 20px 14px;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    color: #2a4a9c;
+    text-align: center;
+}
+
+.card-modo-mini:hover:not(:disabled) {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+}
+
+.card-modo-mini:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.card-modo-mini .card-modo-icone-grande {
+    font-size: 3rem;
+}
+
+.card-modo-mini .card-modo-titulo {
+    font-size: 1.2rem;
+}
+
+.card-modo-mini .card-modo-desc {
+    font-size: 0.8rem;
+}

@@ -1,0 +1,457 @@
+/* Fontes Pokemons */
+@font-face {
+    font-family: "PokemonSolid";
+    src: url("../font/PokemonSolid.ttf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: "PokemonHollow";
+    src: url("../font/PokemonHollow.ttf") format("truetype");
+    font-display: swap;
+}
+
+/* Fonte minigames */
+@font-face {
+    font-family: "PixelGameFont";
+    src: url("../font/PixelGameFont.ttf") format("truetype");
+    font-display: swap;
+}
+
+/* Fundo e scroll behavior */
+html {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), url('../photos/bg.jpg');                                                         
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overscroll-behavior-block:none;
+}
+
+/* Fonte do conteúdo*/
+body, body input, body select, body button, body textarea {
+    font-family: "PixelGameFont", sans-serif;
+}
+
+/* Estilos do cabeçalho */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-family: "PokemonSolid", sans-serif;
+    font-weight: normal;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    color: #ffcb05;
+    -webkit-text-stroke: 2px #2a4a9c;
+    text-shadow: 3px 3px 0 #2a4a9c;
+    margin: 10px 0 20px 0;
+}
+
+/* Estilo do contador de selecionados */
+.contador-selecao {
+    background-color: #ffcd05;
+    color: #2a4a9c;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo da boz de info do Valdo */
+.treinador-info-mini {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #ffffffc1;
+    padding: 8px 18px;
+    border-radius: 12px;
+    border: 2px solid #2a4a9c;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+}
+
+/* Tamanho da imagem do nosso treinador Valdo */
+.sprite-treinador-mini {
+    width: 48px;
+    height: 48px;
+    image-rendering: pixelated;
+    object-fit: contain;
+}
+
+/* Estilo do nome do treinador */
+.nome-treinador-mini {
+    margin: 0;
+    color: #2a4a9c;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* Estilo do botão de logout */
+.btn-logout {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #ffffffee;
+    color: #2a4a9c;
+    border: 2px solid #2a4a9c;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.1s;
+    margin-left: 6px;
+}
+
+/* Hover no botão de logout */
+.btn-logout:hover {
+    background-color: #c22e28;
+    color: #fff;
+    border-color: #c22e28;
+}
+
+/* Ativo ou não? */
+.btn-logout:active {
+    transform: scale(0.98);
+}
+
+/* Barra de equipe, de quantos estão selecionados */
+.equipe-barra {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.equipe-barra .contador-selecao {
+    margin-bottom: 0;
+}
+
+/* Botão de resetar */
+.btn-resetar {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #ffffffee;
+    color: #2a4a9c;
+    border: 2px solid #2a4a9c;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, background-color 0.2s, color 0.2s;
+}
+
+/* Hover no botão resetar */
+.btn-resetar:hover {
+    background-color: #c22e28;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Inativo ou não? */
+.btn-resetar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    background-color: #ffffffee;
+    color: #343131;
+}
+
+/* Botão de ver a equipe mesmo incompleta */
+.btn-ver-equipe {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #ffffffee;
+    color: #2a4a9c;
+    border: 2px solid #2a4a9c;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+/* Hover no botão ver equipe */
+.btn-ver-equipe:hover {
+    background-color: #ffd83a;
+    transform: translateY(-2px);
+}
+
+/* Inativo ou não? */
+.btn-ver-equipe:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    background-color: #ffffffee;
+}
+
+.btn-ver-equipe:disabled:hover {
+    background-color: #ffffffee;
+    transform: none;
+}
+
+/* Estilo para a barra de pesquisa */
+.filtro-barra {
+    display: flex;
+    align-items: center;
+    background-color: #ffffffee;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    padding: 4px 8px 4px 14px;
+    margin-bottom: 0px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: min(500px, 90vw);
+}
+
+.filtro-barra:focus-within {
+    border-color: #ffcb05;
+    box-shadow: 0 3px 12px rgba(255, 203, 5, 0.4);
+}
+
+.filtro-icone-busca,
+.filtro-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #343131;
+}
+
+.filtro-icone-busca {
+    margin-right: 8px;
+}
+
+.busca-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    color: #343131;
+    padding: 8px 4px;
+    min-width: 0;
+}
+
+.busca-input::placeholder {
+    color: #888;
+}
+
+.filtro-wrapper {
+    display: flex;
+    align-items: center;
+    border-left: 1px solid #ddd;
+    padding-left: 10px;
+    margin-left: 6px;
+}
+
+.filtro-wrapper .filtro-icone {
+    margin-right: 4px;
+}
+
+.filtro-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: #343131;
+    text-transform: capitalize;
+    padding: 8px 22px 8px 4px;
+    cursor: pointer;
+    outline: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23343131' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 4px center;
+    max-width: 130px;
+}
+
+.filtro-select option {
+    text-transform: capitalize;
+}
+
+.pokemon-card.escondido {
+    display: none;
+}
+
+/* Quando a equipe está completa (6/6), esmaece os cards não selecionados */
+.pokedex-container.equipe-completa .pokemon-card:not(.selected) {
+    opacity: 0.35;
+    filter: grayscale(60%);
+    pointer-events: none;
+    transition: opacity 0.3s, filter 0.3s;
+}
+
+/* Overlay final - aparece quando a equipe está completa */
+.overlay-final {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    animation: fadeIn 0.4s ease-out;
+}
+
+.overlay-final.ativo {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.overlay-conteudo {
+    background-color: #ffffffee;
+    border: 3px solid #2a4a9c;
+    border-radius: 15px;
+    padding: 40px 50px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    max-width: 90vw;
+}
+
+.overlay-conteudo h2 {
+    font-family: "PokemonSolid", sans-serif;
+    font-weight: normal;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    color: #ffcb05;
+    -webkit-text-stroke: 2px #2a4a9c;
+    text-shadow: 3px 3px 0 #2a4a9c;
+    margin: 0 0 15px 0;
+}
+
+.overlay-conteudo p {
+    color: #2a4a9c;
+    font-size: 1rem;
+    margin: 0 0 25px 0;
+    letter-spacing: 1px;
+}
+
+.btn-comecar-aventura {
+    background-color: #ffffffee;
+    color: #2a4a9c;
+    border: 2px solid #2a4a9c;
+    border-radius: 8px;
+    padding: 14px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-comecar-aventura:hover {
+    background-color: #ffd83a;
+}
+
+.btn-comecar-aventura:active {
+    transform: scale(0.98);
+}
+
+/* Container principal em Flexbox */
+.pokedex-container {
+    display: flex;
+    flex-wrap: wrap;     /* Permite que os cards quebrem a linha */
+    justify-content: center; /* Centraliza os cards na tela */
+    gap: 20px;           /* Espaçamento entre os cards */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* O Card do Pokémon seguindo o seu padrão visual */
+.pokemon-card {
+    background-color: #ffffff84;
+    color: #343131;
+    width: 180px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s;
+}
+
+.pokemon-card:hover {
+    transform: translateY(-5px); /* Efeito sutil ao passar o mouse */
+    border-color: #ffcb05;      /* Borda amarela clássica */
+    cursor: pointer;
+}
+
+.pokemon-img {
+    width: 96px;
+    height: 96px;
+    image-rendering: pixelated; /* Mantém o estilo de sprite nítido */
+}
+
+.pokemon-name {
+    font-family: "PixelGameFont", sans-serif;
+    font-size: 20px;
+    /* text-transform: capitalize; Deixa a primeira letra maiúscula */
+    margin: 10px 0 5px 0;
+}
+
+.pokemon-type {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-family: "PixelGameFont", sans-serif;
+    text-transform: uppercase;
+}
+
+/* Cores oficiais por tipo - aplicadas quando o card está selecionado */
+.pokemon-card.selected {
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.pokemon-card.selected .pokemon-type {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.pokemon-card.selected.type-normal   { background-color: #A8A77A; border-color: #A8A77A; }
+.pokemon-card.selected.type-fire     { background-color: #EE8130; border-color: #EE8130; }
+.pokemon-card.selected.type-water    { background-color: #6390F0; border-color: #6390F0; }
+.pokemon-card.selected.type-electric { background-color: #F7D02C; border-color: #F7D02C; }
+.pokemon-card.selected.type-grass    { background-color: #7AC74C; border-color: #7AC74C; }
+.pokemon-card.selected.type-ice      { background-color: #96D9D6; border-color: #96D9D6; }
+.pokemon-card.selected.type-fighting { background-color: #C22E28; border-color: #C22E28; }
+.pokemon-card.selected.type-poison   { background-color: #A33EA1; border-color: #A33EA1; }
+.pokemon-card.selected.type-ground   { background-color: #E2BF65; border-color: #E2BF65; }
+.pokemon-card.selected.type-flying   { background-color: #A98FF3; border-color: #A98FF3; }
+.pokemon-card.selected.type-psychic  { background-color: #F95587; border-color: #F95587; }
+.pokemon-card.selected.type-bug      { background-color: #A6B91A; border-color: #A6B91A; }
+.pokemon-card.selected.type-rock     { background-color: #B6A136; border-color: #B6A136; }
+.pokemon-card.selected.type-ghost    { background-color: #735797; border-color: #735797; }
+.pokemon-card.selected.type-dragon   { background-color: #6F35FC; border-color: #6F35FC; }
+.pokemon-card.selected.type-dark     { background-color: #705746; border-color: #705746; }
+.pokemon-card.selected.type-steel    { background-color: #B7B7CE; border-color: #B7B7CE; }
+.pokemon-card.selected.type-fairy    { background-color: #D685AD; border-color: #D685AD; }

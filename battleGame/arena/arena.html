@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batalha — Arena</title>
+    <link rel="stylesheet" href="../battle.css">
+    <link rel="stylesheet" href="../../theme/tema.css">
+    <link rel="stylesheet" href="../../theme/musica.css">
+    <link rel="stylesheet" href="../../theme/overlays.css">
+    <script src="../../theme/tema.js"></script>
+    <script src="../../theme/musica.js" defer></script>
+    <script src="../../theme/overlays.js"></script>
+    <script src="../../theme/guard.js"></script>
+</head>
+<body>
+    <label class="toggle-tema-wrapper" for="toggle-tema">
+        <input type="checkbox" id="toggle-tema" class="toggle-tema-input">
+        <span class="toggle-tema-label">
+            <span class="toggle-tema-thumb"></span>
+        </span>
+    </label>
+
+    <header>
+        <h1>Batalha</h1>
+        <p class="subtitulo" id="subtitulo-dificuldade">Carregando...</p>
+    </header>
+
+    <main>
+        <section id="loading" class="loading-arena">
+            <p>Carregando dados da batalha...</p>
+        </section>
+
+        <section id="arena" class="arena" style="display: none;">
+            <!-- Painel inimigo (em cima) -->
+            <section id="painel-inimigo" class="painel-pokemon">
+                <img id="sprite-inimigo" src="" alt="Inimigo">
+                <div class="painel-info-batalha">
+                    <div class="linha-nome">
+                        <span id="nome-inimigo" class="nome-batalha">???</span>
+                        <span id="tipo-inimigo" class="selecao-tipo">tipo</span>
+                    </div>
+                    <div class="barra-hp-wrap">
+                        <div id="barra-inimigo" class="barra-hp"></div>
+                    </div>
+                    <span id="hp-inimigo" class="hp-texto">HP: 0 / 0</span>
+                    <span id="mod-inimigo" class="modificadores"></span>
+                </div>
+            </section>
+
+            <!-- Painel jogador (embaixo) -->
+            <section id="painel-jogador" class="painel-pokemon">
+                <img id="sprite-jogador" src="" alt="Seu Pokemon">
+                <div class="painel-info-batalha">
+                    <div class="linha-nome">
+                        <span id="nome-jogador" class="nome-batalha">???</span>
+                        <span id="tipo-jogador" class="selecao-tipo">tipo</span>
+                    </div>
+                    <div class="barra-hp-wrap">
+                        <div id="barra-jogador" class="barra-hp"></div>
+                    </div>
+                    <span id="hp-jogador" class="hp-texto">HP: 0 / 0</span>
+                    <span id="mod-jogador" class="modificadores"></span>
+                </div>
+            </section>
+
+            <!-- Caixa de mensagem -->
+            <section id="caixa-mensagem" class="caixa-mensagem">
+                Aguardando inicio da batalha...
+            </section>
+
+            <!-- Acoes -->
+            <section class="acoes">
+                <div id="movimentos-grid" class="movimentos-grid"></div>
+                <div class="botoes-extras">
+                    <button id="btn-trocar" class="btn-trocar" type="button">Trocar Pokemon</button>
+                    <button id="btn-fugir" class="btn-fugir" type="button">Fugir</button>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <!-- Overlay de troca -->
+    <div id="overlay-troca" class="overlay-batalha">
+        <div class="overlay-conteudo-batalha">
+            <h2>Trocar Pokemon</h2>
+            <p id="msg-troca">Escolha o proximo Pokemon</p>
+            <div id="troca-grid" class="troca-grid"></div>
+            <div class="overlay-botoes-batalha">
+                <button id="btn-fechar-troca" class="btn-overlay" type="button">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay vitoria -->
+    <div id="overlay-vitoria" class="overlay-batalha">
+        <div class="overlay-conteudo-batalha">
+            <h2>Vitoria!</h2>
+            <p>Voce derrotou o Pokemon selvagem!</p>
+            <p id="estatistica-vitoria"></p>
+            <div class="overlay-botoes-batalha">
+                <button id="btn-nova-batalha" class="btn-overlay" type="button">Nova Batalha</button>
+                <button id="btn-voltar-aventura" class="btn-overlay" type="button">Voltar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay derrota -->
+    <div id="overlay-derrota" class="overlay-batalha">
+        <div class="overlay-conteudo-batalha">
+            <h2>Derrota...</h2>
+            <p>Toda sua equipe desmaiou!</p>
+            <div class="overlay-botoes-batalha">
+                <button id="btn-tentar-novamente" class="btn-overlay" type="button">Tentar Novamente</button>
+                <button id="btn-voltar-aventura-derrota" class="btn-overlay" type="button">Voltar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../tabelaTipos.js"></script>
+    <script src="../battleEngine.js"></script>
+    <script src="arena.js"></script>
+</body>
+</html>
